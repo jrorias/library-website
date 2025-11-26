@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import ChunkReload from "@/components/ChunkReload"; // <-- import the client component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,16 +16,20 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Capytech JRD",
   description: "prepared by Team Ba",
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: '/favicon.ico',},
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ChunkReload /> {/* Add this */}
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
